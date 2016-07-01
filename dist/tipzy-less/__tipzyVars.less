@@ -1,0 +1,40 @@
+/**
+* TipZy : accessible ToolTips 
+* - default to a title attr
+* - mind your arias
+* - animations with css
+* - js for positioning & class swappings
+*
+* author : beechbot
+*
+*/ 
+
+//
+// !VARS
+//
+
+@tipzy-z_top: 50;
+
+@tipzy-pad: 1em;
+@tipzy-max-w: 28em;
+
+@tipzy-bg: #eee;
+@tipzy-txtColor: #333;
+@tipzy-borderColor: #666;
+
+@tipzy-borderWidth: 1px;
+@tipzy-border: @tipzy-borderWidth solid @tipzy-borderColor;
+@tipzy-shadow: 0px 0px @tipzy-pad*1.5 rgba(0,0,0,0.4);
+
+@tipzy-arrowSize: 10px;
+@tipzy-arrowSizeWBorder: @tipzy-arrowSize + @tipzy-borderWidth;
+
+@tipzy-widthStack: 560px;
+
+.tipzyStyleOverride() {
+	// you can put things here to override the default ._tipzy stylez ...
+}
+
+.tipzyContentStyleOverride() {
+	// you can put things here to override the default ._tipzy_content stylez ...
+}
