@@ -1,0 +1,27 @@
+{
+	"name": "tipzy",	
+	"version": "1.0.0",
+	"authors": [
+	    "Beecher <beecher@beechbot.com>"
+	],
+	"description": "tipzy : simple, accessible tooltips",
+	"homepage": "http://beechbot.com/demos/tipzy",
+	"repository" : "https://github.com/beechertrouble/tipzy",
+	"main": "dist/js/tipzy.js",
+	"license": "MIT",
+	"private": true,
+	"dependencies": {
+	    "jquery": "~2.1.1",
+	    "inView": "https://github.com/beechertrouble/inView.git",
+	    "endedEvents": "https://github.com/beechertrouble/endedEvents.git"
+	},
+	"ignore": [
+	    "**/.*",
+	    "node_modules",
+	    "vendor",
+	    "demo",
+	    "src",
+	    "package.json",
+	    "Gruntfile.js"
+	]
+}
