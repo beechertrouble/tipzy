@@ -5,7 +5,7 @@ tooltips, simple and accessible
 - default to a title attr ( for people with noscript )
 - mind your arias for screenreaders ...
 - animations with css - because that's usually more performant
-- js for positioning & class swappings
+- js for positioning & `aria-hidden` swappings
 
 
 ### markup
@@ -63,4 +63,15 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 
 
 ### javascript things
-- used to create the tooltips, and toggle the `[aria-hidden]` attribute ... also to position them so they fit in the window, also to determine the arrow position ...
+- used to create the tooltips, and toggle the `aria-hidden` attribute ... also to position them so they fit in the window, also to determine the arrow position ...
+- a few versions of the js are available ( both minified and unminified ): 
+	- `tipzy.full.js` - this has all the required libraries built in ( except jquery of course )
+	- `tipzy.amd.js` - define style for like require.js
+	- `tipzy.main.js` - this expects you already have the required libraries in there and is not amd stylz
+- basic usage is automagical - set it and forget it like 
+```javascript
+	
+	_tipsy.init();
+	
+```
+
