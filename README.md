@@ -74,9 +74,36 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 	_tipsy.init();
 	
 ```
+- you can pass it some args - here's a simple example - might be more args later ...
+```javascript
+	
+	var args = {
+		windowPadding : 0 // this will make it so tips butt right up against the edges of the window ( defaults to 10 )
+	};
+	
+	_tipsy.init(args);
+	
+```
 
 #### other methods
 
-- `_tipzy.parseTips();` - to parse and tip anchor markup that's visible on the page 
+- `_tipzy.parseTips();` - to parse any tip anchors that are visible on the page 
+
+- `_tipzy.addTip($anchor, tipContent);` - to manually add a tip to a jquery object in the dom, tipContent is optional
+
+- `_tipzy._tips[tip_uid_here].setContent('derp');` - to change the content of a tooltip 
+
+## todo : 
+- js header packaging for amd and export
+- browser / device testing 
+- screen reader testing
+
+## maybe : 
+- callbacks?
+- tip content from existing element in dom?
+- sass support?
+- more closely follow pointer for arrow positioning?
+- follow pointer on move?
+- should these be tabbable if the element itself isn't?
 
 

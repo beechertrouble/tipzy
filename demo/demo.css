@@ -56,6 +56,49 @@ body {
 	font-size:1em;
 	background: #eee;
 	display:block;
-	line-height: 1.4;
-	padding: 2em;
+	line-height: 1.6;
+}
+
+/* regular things */
+
+i, em {
+	font-style: italic;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	padding-bottom: 1rem;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+.main_wrap * + * {
+	margin-top: 1rem;
+}
+
+/* app specific */
+
+
+.main_wrap {
+	min-height: 100vh;
+	padding-bottom: 3em;
+}
+
+._tipzy_anchor {
+	color: #eee;
+	background: #333;
+	display: inline-block;
+	padding: 0 4px;
+}
+
+#demo_bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }

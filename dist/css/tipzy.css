@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-07-01 09:45:30 PM 
+* 2016-07-02 11:25:04 AM 
 */
 /**
 * TipZy : accessible ToolTips 
@@ -270,6 +270,12 @@
 ._tipzy[data-tipzyleft^="100%"]:before {
   left: 95%;
 }
+._tipzy[data-tipzyv="top"] {
+  transform: translateY(2em);
+}
+._tipzy[data-tipzyv="top"][aria-hidden*="false"] {
+  transform: translateY(0);
+}
 ._tipzy[data-tipzyv="top"]:after,
 ._tipzy[data-tipzyv="top"]:before {
   top: auto;
@@ -322,4 +328,9 @@
 }
 ._tipzy_content::-webkit-scrollbar {
   display: none;
+}
+._tipzy_content:after {
+  content: "";
+  display: block;
+  clear: both;
 }

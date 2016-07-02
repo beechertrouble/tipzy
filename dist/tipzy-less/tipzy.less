@@ -102,7 +102,14 @@
 	&[data-tipzyleft^="95%"],
 	&[data-tipzyleft^="100%"] {  &:after, &:before {left:95%;} }
 	
+	// when the tip is below the anchor ...
 	&[data-tipzyv="top"] {  
+		
+		transform: translateY(@tipzy-pad *2);
+		&[aria-hidden*="false"] {
+			transform: translateY(0);
+		}
+		
 		&:after,
 		&:before {
 			top: auto;
@@ -167,6 +174,12 @@
 	-ms-overflow-style: none;
 	&::-webkit-scrollbar { 
 	    display: none; 
+	}
+	
+	&:after {
+		content:"";
+		display:block;
+		clear:both;
 	}
 	
 	.tipzyContentStyleOverride();
