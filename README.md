@@ -75,3 +75,8 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 	
 ```
 
+#### other methods
+
+- `_tipzy.parseTips();` - to parse and tip anchor markup that's visible on the page 
+
+

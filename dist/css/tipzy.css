@@ -1,0 +1,325 @@
+/**
+* tipzy
+* v1.0.0
+* 2016-07-01 09:45:30 PM 
+*/
+/**
+* TipZy : accessible ToolTips 
+* - default to a title attr
+* - mind your arias
+* - animations with css
+* - js for positioning & class swappings
+*
+* author : beechbot
+*
+*/
+/**
+* TipZy : accessible ToolTips 
+* - default to a title attr
+* - mind your arias
+* - animations with css
+* - js for positioning & class swappings
+*
+* author : beechbot
+*
+*/
+@-moz-keyframes tipzy-hide {
+  0% {
+    z-index: 50;
+  }
+  99.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+@-webkit-keyframes tipzy-hide {
+  0% {
+    z-index: 50;
+  }
+  99.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+@-o-keyframes tipzy-hide {
+  0% {
+    z-index: 50;
+  }
+  99.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+@-ms-keyframes tipzy-hide {
+  0% {
+    z-index: 50;
+  }
+  99.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+@keyframes tipzy-hide {
+  0% {
+    z-index: 50;
+  }
+  99.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+@-moz-keyframes tipzy-show {
+  0% {
+    z-index: -1;
+  }
+  0.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: 50;
+  }
+}
+@-webkit-keyframes tipzy-show {
+  0% {
+    z-index: -1;
+  }
+  0.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: 50;
+  }
+}
+@-o-keyframes tipzy-show {
+  0% {
+    z-index: -1;
+  }
+  0.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: 50;
+  }
+}
+@-ms-keyframes tipzy-show {
+  0% {
+    z-index: -1;
+  }
+  0.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: 50;
+  }
+}
+@keyframes tipzy-show {
+  0% {
+    z-index: -1;
+  }
+  0.9999% {
+    z-index: 50;
+  }
+  100% {
+    z-index: 50;
+  }
+}
+._tipzy {
+  display: inline-block;
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  padding: 1em;
+  max-width: 28em;
+  background: #eee;
+  color: #333;
+  border: 1px solid #666;
+  box-shadow: 0px 0px 1.5em rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(-2em);
+  transition: opacity 0.3s 0.3s, transform 0.3s 0.75s;
+  -moz-animation: tipzy-hide 0.5s forwards;
+  -webkit-animation: tipzy-hide 0.5s forwards;
+  -o-animation: tipzy-hide 0.5s forwards;
+  -ms-animation: tipzy-hide 0.5s forwards;
+  animation: tipzy-hide 0.5s forwards;
+}
+._tipzy[aria-hidden*="false"] {
+  opacity: 1;
+  z-index: 50;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+  -moz-animation: tipzy-show 0.5s 0.5s forwards;
+  -webkit-animation: tipzy-show 0.5s 0.5s forwards;
+  -o-animation: tipzy-show 0.5s 0.5s forwards;
+  -ms-animation: tipzy-show 0.5s 0.5s forwards;
+  animation: tipzy-show 0.5s 0.5s forwards;
+}
+._tipzy:after,
+._tipzy:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+._tipzy:after {
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #eee;
+  border-width: 10px;
+  margin-left: -10px;
+}
+._tipzy:before {
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #666;
+  border-width: 11px;
+  margin-left: -11px;
+}
+._tipzy[data-tipzyleft^="5%"]:after,
+._tipzy[data-tipzyleft^="5%"]:before {
+  left: 5%;
+}
+._tipzy[data-tipzyleft^="10%"]:after,
+._tipzy[data-tipzyleft^="10%"]:before {
+  left: 10%;
+}
+._tipzy[data-tipzyleft^="15%"]:after,
+._tipzy[data-tipzyleft^="15%"]:before {
+  left: 15%;
+}
+._tipzy[data-tipzyleft^="20%"]:after,
+._tipzy[data-tipzyleft^="20%"]:before {
+  left: 20%;
+}
+._tipzy[data-tipzyleft^="25%"]:after,
+._tipzy[data-tipzyleft^="25%"]:before {
+  left: 25%;
+}
+._tipzy[data-tipzyleft^="30%"]:after,
+._tipzy[data-tipzyleft^="30%"]:before {
+  left: 30%;
+}
+._tipzy[data-tipzyleft^="35%"]:after,
+._tipzy[data-tipzyleft^="35%"]:before {
+  left: 35%;
+}
+._tipzy[data-tipzyleft^="40%"]:after,
+._tipzy[data-tipzyleft^="40%"]:before {
+  left: 40%;
+}
+._tipzy[data-tipzyleft^="45%"]:after,
+._tipzy[data-tipzyleft^="45%"]:before {
+  left: 45%;
+}
+._tipzy[data-tipzyleft^="50%"]:after,
+._tipzy[data-tipzyleft^="50%"]:before {
+  left: 50%;
+}
+._tipzy[data-tipzyleft^="55%"]:after,
+._tipzy[data-tipzyleft^="55%"]:before {
+  left: 55%;
+}
+._tipzy[data-tipzyleft^="60%"]:after,
+._tipzy[data-tipzyleft^="60%"]:before {
+  left: 60%;
+}
+._tipzy[data-tipzyleft^="65%"]:after,
+._tipzy[data-tipzyleft^="65%"]:before {
+  left: 65%;
+}
+._tipzy[data-tipzyleft^="70%"]:after,
+._tipzy[data-tipzyleft^="70%"]:before {
+  left: 70%;
+}
+._tipzy[data-tipzyleft^="75%"]:after,
+._tipzy[data-tipzyleft^="75%"]:before {
+  left: 75%;
+}
+._tipzy[data-tipzyleft^="80%"]:after,
+._tipzy[data-tipzyleft^="80%"]:before {
+  left: 80%;
+}
+._tipzy[data-tipzyleft^="85%"]:after,
+._tipzy[data-tipzyleft^="85%"]:before {
+  left: 85%;
+}
+._tipzy[data-tipzyleft^="90%"]:after,
+._tipzy[data-tipzyleft^="90%"]:before {
+  left: 90%;
+}
+._tipzy[data-tipzyleft^="95%"]:after,
+._tipzy[data-tipzyleft^="100%"]:after,
+._tipzy[data-tipzyleft^="95%"]:before,
+._tipzy[data-tipzyleft^="100%"]:before {
+  left: 95%;
+}
+._tipzy[data-tipzyv="top"]:after,
+._tipzy[data-tipzyv="top"]:before {
+  top: auto;
+  bottom: 100%;
+}
+._tipzy[data-tipzyv="top"]:after {
+  border-color: rgba(0, 0, 0, 0);
+  border-bottom-color: #eee;
+}
+._tipzy[data-tipzyv="top"]:before {
+  border-color: rgba(0, 0, 0, 0);
+  border-bottom-color: #666;
+}
+._tipzy:after,
+._tipzy:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+._tipzy:after {
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #eee;
+  border-width: 10px;
+  margin-left: -10px;
+}
+._tipzy:before {
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #666;
+  border-width: 11px;
+  margin-left: -11px;
+}
+@media only screen and (max-width: 560px) {
+  ._tipzy {
+    max-width: 90%;
+  }
+}
+._tipzy_content {
+  position: relative;
+  display: block;
+  line-height: 1.4;
+  max-height: 50vh;
+  overflow: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+._tipzy_content::-webkit-scrollbar {
+  display: none;
+}

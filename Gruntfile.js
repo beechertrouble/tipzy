@@ -98,7 +98,7 @@ module.exports = function(grunt) {
 			js: {
 				files: {
 					'dist/js/tipzy.main.min.js' : ['dist/js/tipzy.main.js'],
-					'dist/js/tipzy.full.main.min.js' : ['dist/js/tipzy.full.js'],
+					'dist/js/tipzy.full.min.js' : ['dist/js/tipzy.full.js'],
 					'dist/js/tipzy.amd.min.js' : ['dist/js/tipzy.amd.js']
 				}
 			},
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
 			},
 			css: {
 				files: [
-					'dist/less/**/*.less'
+					'dist/tipzy-less/**/*.less'
 				],
 				tasks: ['less:dev']
 			}
