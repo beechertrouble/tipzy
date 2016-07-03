@@ -48,17 +48,6 @@ module.exports = function(grunt) {
 		cnf: cnf,
 
 		concat: {
-			jsMain: {
-				options: {
-					separator: '\n'
-				},
-				src: [
-					"js-src/header.js",
-					"js-src/tipzy.main.js",
-					"js-src/footer.js",
-				],
-				dest: "dist/js/tipzy.main.js"
-			},
 			
 			jsFull: {
 				options: {
@@ -69,17 +58,18 @@ module.exports = function(grunt) {
 					"vendor/inView/inView.js",
 					"vendor/endedEvents/endedEvents.js",
 					"js-src/tipzy.main.js",
-					"js-src/footer.js",
+					"js-src/footer.full.js",
 				],
 				dest: "dist/js/tipzy.full.js"
 			},
 			
-			jsAMDl: {
+			jsAMD: {
 				options: {
 					separator: '\n'
 				},
 				src: [
 					"js-src/header.amd.js",
+					"vendor/inView/inView.js",
 					"js-src/tipzy.main.js",
 					"js-src/footer.amd.js",
 				],

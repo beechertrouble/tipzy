@@ -1,3 +1,9 @@
+/**
+* this is really just a wrap to contain the other required libraries
+*/
+var _tipzy = (function(W, $) {
+	
+	
 if(!jQuery().inView){
 	$.fn.inView=function(p){ 
 		
@@ -417,6 +423,10 @@ var _tipzy = (function(W, $) {
 	
 	}; // init()
 	
+	
+	return _tipzy;
+		
+})(window, jQuery);
 	
 	return _tipzy;
 		

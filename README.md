@@ -94,16 +94,12 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 - `_tipzy._tips[tip_uid_here].setContent('derp');` - to change the content of a tooltip 
 
 ## todo : 
-- js header packaging for amd and export
 - browser / device testing 
-- screen reader testing
 
 ## maybe : 
 - callbacks?
 - tip content from existing element in dom?
 - sass support?
-- more closely follow pointer for arrow positioning?
-- follow pointer on move?
-- should these be tabbable if the element itself isn't?
+- should these be tabbable if the element itself isn't (so you can focus on the element and see the tip)?
 
 
