@@ -1,4 +1,10 @@
 /**
+* tipzy
+* v1.0.0
+* 2016-07-03 02:46:54 PM 
+*/ 
+
+/**
 * this is really just a wrap to contain the other required libraries
 */
 var _tipzy = (function(W, $) {

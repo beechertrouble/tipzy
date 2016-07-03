@@ -1,4 +1,10 @@
 /**
+* tipzy
+* v1.0.0
+* 2016-07-03 02:46:54 PM 
+*/ 
+
+/**
 * TipZy : accessible ToolTips 
 * - default to a title attr
 * - mind your arias

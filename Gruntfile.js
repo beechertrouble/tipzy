@@ -48,10 +48,21 @@ module.exports = function(grunt) {
 		cnf: cnf,
 
 		concat: {
+			jsMain: {
+				options: {
+					separator: '\n',
+					banner: "<%= cnf.banner %>"
+				},
+				src: [
+					"js-src/tipzy.main.js",
+				],
+				dest: "dist/js/tipzy.main.js"
+			},
 			
 			jsFull: {
 				options: {
-					separator: '\n'
+					separator: '\n',
+					banner: "<%= cnf.banner %>"
 				},
 				src: [
 					"js-src/header.full.js",
@@ -65,7 +76,8 @@ module.exports = function(grunt) {
 			
 			jsAMD: {
 				options: {
-					separator: '\n'
+					separator: '\n',
+					banner: "<%= cnf.banner %>"
 				},
 				src: [
 					"js-src/header.amd.js",
@@ -83,7 +95,8 @@ module.exports = function(grunt) {
 		 */
 		uglify: {
 			options: {
-				mangle: true
+				mangle: true,
+				banner: "<%= cnf.banner %>"
 			},
 			js: {
 				files: {

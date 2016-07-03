@@ -1,4 +1,10 @@
 /**
+* tipzy
+* v1.0.0
+* 2016-07-03 02:46:54 PM 
+*/ 
+
+/**
 * amd stylez
 */
 define('_tipzy', ['jQuery'], function($) { 
