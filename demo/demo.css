@@ -26,6 +26,7 @@ time, mark, audio, video {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
+	position: relative;
 	display: block;
 }
 
@@ -60,6 +61,11 @@ body {
 }
 
 /* regular things */
+
+p {
+	position: relative;
+	display: block;
+}
 
 i, em {
 	font-style: italic;
@@ -98,7 +104,7 @@ h1 {
 }
 
 #demo_bottom {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	left: 0;
 }
