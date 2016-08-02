@@ -93,6 +93,8 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 
 - `_tipzy._tips[tip_uid_here].setContent('derp');` - to change the content of a tooltip 
 
+- `_tipzy.hideAll();` - to force hide all tooltips
+
 ## todo : 
 - browser / device testing 
 

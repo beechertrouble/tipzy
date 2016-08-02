@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-07-03 02:46:54 PM 
+* 2016-08-02 02:56:07 PM 
 */ 
 
 /**
@@ -19,6 +19,7 @@
 var _tipzy = (function(W, $) {
 	
 	var _tipzy = {
+			inited : false,
 			windowPadding : 10, // this is as close as we want to get to the edges of the window
 			_tips : {}, // to contain references to all tooltips on the page, also for accessing by UID
 			pageStats : {}
@@ -139,7 +140,7 @@ var _tipzy = (function(W, $) {
 					'data-tipzytitle' : $anchor.attr('title')
 				})
 				.removeAttr('title')
-				.on('focus mouseover', function(e){ //onMouseover element
+				.on('focus mouseover mousenter', function(e){ //onMouseover element
 					_tip.updateAnchorDims();
 					_tip.show(e);
 				})
@@ -156,7 +157,7 @@ var _tipzy = (function(W, $) {
 		_tip.position = function(e) {
 			
 			e = e === undefined ? false : getCoords(e);
-			
+						
 			// default target to center of anchor - unless we have pointer info ...
 			var anchorCenter = _tip.anchorDims.x + (_tip.anchorDims.w *0.5),
 				target = !e ? anchorCenter :  e.x,
@@ -171,12 +172,14 @@ var _tipzy = (function(W, $) {
 				// left edge of window
 				case(_tip.tipDims.x <= _tipzy.pageStats.L): 
 					_tip.tipDims.x = _tipzy.pageStats.L;
+					_tip.updateTipDims();
 					arrowLeft = Math.floor(pxToPerc(_tip.tipDims.x + _tip.tipDims.w, (_tip.anchorDims.x + (_tip.anchorDims.w *0.5))) /5) * 5; // fullPX, px
 					break;
 				
 				// right edge of window	
 				case((_tip.tipDims.x + _tip.tipDims.w - _tipzy.pageStats.L) >= _tipzy.pageStats.R): 
 					_tip.tipDims.x = _tipzy.pageStats.R - _tip.tipDims.w ;
+					_tip.updateTipDims();
 					arrowLeft = Math.floor(pxToPerc(_tip.tipDims.w,  ((_tip.anchorDims.x + (_tip.anchorDims.w *0.5)) - _tip.tipDims.x) ) /5) * 5; // fullPX, px
 					break;
 				
@@ -201,29 +204,32 @@ var _tipzy = (function(W, $) {
 		}; // position()
 		
 		_tip.updateTipDims = function(){
-			_tip.tipDims = {
-				w : _tip.$tip.outerWidth(),
-				h : _tip.$tip.outerHeight(),
-				tipxOffset : _tip.anchorDims.w *0.5,
-				tipyOffset : 5
-			};
+			_tip.tipDims.w = _tip.$tip.outerWidth();
+			_tip.tipDims.h = _tip.$tip.outerHeight();
+			_tip.tipDims.tipxOffset = _tip.anchorDims.w *0.5;
+			_tip.tipDims.tipyOffset = 5;
 		}; // updateTipDims()
 		
 		_tip.updateAnchorDims= function(){
-			_tip.anchorDims = {
-				w : $anchor[0].offsetWidth, 
-				h : $anchor[0].offsetHeight, 
-				x : $anchor.offset().left, 
-				y : $anchor.offset().top
-			};
+			_tip.anchorDims.w = $anchor[0].offsetWidth;
+			_tip.anchorDims.h = $anchor[0].offsetHeight;
+			_tip.anchorDims.x = $anchor.offset().left; 
+			_tip.anchorDims.y = $anchor.offset().top;
 		}; // updateAnchorDims()
 		
 		_tip.show = function(e, position) {
-			position = position != undefined ? position : true;
+			
+			if(!_tipzy.inited) 
+				_tipzy.init();
+			
+			position = position !== undefined ? position : true;
 			_tip.updateTipDims();
+			
 			if(position)
 				_tip.position(e);
+				
 			_tip.$tip.attr('aria-hidden', 'false');
+			
 		}; // 	show()
 		
 		_tip.hide = function() {
@@ -317,6 +323,8 @@ var _tipzy = (function(W, $) {
 				});
 
 		});
+		
+		_tipzy.inited = true;
 	
 	}; // init()
 	

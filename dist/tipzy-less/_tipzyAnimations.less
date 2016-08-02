@@ -3,15 +3,33 @@
 //
 
 .tipzyHide() {
-	0% { z-index: @tipzy-z_top; }
-	99.9999% { z-index: @tipzy-z_top; }
-	100% { z-index: -1; pointer-events: none; }
+	0% { 
+		z-index: @tipzy-z_top; 
+		pointer-events: all; 
+	}
+	99.9999% { 
+		z-index: @tipzy-z_top; 
+		pointer-events: all; 
+	}
+	100% { 
+		z-index: -1; 
+		pointer-events: none; 
+	}
 }
 
 .tipzyShow() {
-	0% { z-index: -1; }
-	0.9999% { z-index: @tipzy-z_top; }
-	100% { z-index: @tipzy-z_top; }
+	0% { 
+		z-index: -1; 
+		pointer-events: none; 
+	}
+	0.9999% { 
+		z-index: @tipzy-z_top; 
+		pointer-events: all; 
+	}
+	100% { 
+		z-index: @tipzy-z_top; 
+		pointer-events: all; 
+	}
 }
 
 @-moz-keyframes tipzy-hide {

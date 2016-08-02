@@ -140,11 +140,10 @@ module.exports = function(grunt) {
 					jQuery: true
 				},
 				ignores: [
-					/*
-					"<%= cnf.src %>/js/header.js",
-					"<%= cnf.src %>/js/footer.js",
-					"<%= cnf.src %>/js/vendor"
-					*/
+					"js-src/header.amd.js",
+					"js-src/header.full.js",
+					"js-src/footer.amd.js",
+					"js-src/footer.full.js"
 				]
 			},
 			dev: ['js-src/**/*.js']

@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-07-02 11:25:04 AM 
+* 2016-08-02 02:38:43 PM 
 */
 /**
 * TipZy : accessible ToolTips 
@@ -26,9 +26,11 @@
 @-moz-keyframes tipzy-hide {
   0% {
     z-index: 50;
+    pointer-events: all;
   }
   99.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: -1;
@@ -38,9 +40,11 @@
 @-webkit-keyframes tipzy-hide {
   0% {
     z-index: 50;
+    pointer-events: all;
   }
   99.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: -1;
@@ -50,9 +54,11 @@
 @-o-keyframes tipzy-hide {
   0% {
     z-index: 50;
+    pointer-events: all;
   }
   99.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: -1;
@@ -62,9 +68,11 @@
 @-ms-keyframes tipzy-hide {
   0% {
     z-index: 50;
+    pointer-events: all;
   }
   99.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: -1;
@@ -74,9 +82,11 @@
 @keyframes tipzy-hide {
   0% {
     z-index: 50;
+    pointer-events: all;
   }
   99.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: -1;
@@ -86,56 +96,71 @@
 @-moz-keyframes tipzy-show {
   0% {
     z-index: -1;
+    pointer-events: none;
   }
   0.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: 50;
+    pointer-events: all;
   }
 }
 @-webkit-keyframes tipzy-show {
   0% {
     z-index: -1;
+    pointer-events: none;
   }
   0.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: 50;
+    pointer-events: all;
   }
 }
 @-o-keyframes tipzy-show {
   0% {
     z-index: -1;
+    pointer-events: none;
   }
   0.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: 50;
+    pointer-events: all;
   }
 }
 @-ms-keyframes tipzy-show {
   0% {
     z-index: -1;
+    pointer-events: none;
   }
   0.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: 50;
+    pointer-events: all;
   }
 }
 @keyframes tipzy-show {
   0% {
     z-index: -1;
+    pointer-events: none;
   }
   0.9999% {
     z-index: 50;
+    pointer-events: all;
   }
   100% {
     z-index: 50;
+    pointer-events: all;
   }
 }
 ._tipzy {
