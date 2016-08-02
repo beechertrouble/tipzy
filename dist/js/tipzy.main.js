@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-08-02 02:56:07 PM 
+* 2016-08-02 05:02:17 PM 
 */ 
 
 /**
@@ -272,14 +272,15 @@ var _tipzy = (function(W, $) {
 	}; // updateAllAnchors();
 	
 	
-	_tipzy.addTip = function($anchor, tipContent) {
+	_tipzy.addTip = function($anchor, tipContent, showImmediately, e) {
 		
 		if($anchor.length <= 0) return;
 		
 		var tip = new _tip($anchor, tipContent);
-		console.log('parse : ', tip);
 		_tipzy._tips[tip.UID] = tip;
 		
+		if(showImmediately)
+			_tipzy._tips[tip.UID].show(e, true);
 		
 	}; // addTip()
 	
@@ -309,6 +310,19 @@ var _tipzy = (function(W, $) {
 		
 		$(document).ready(function() {
 			
+			$("body")
+				.on('focus mouseenter', "._tipzy_anchor:not('._tipzy_bound')", function(e){
+					
+					var $anchor = $(this);
+					
+					if($anchor.inView(0)) {
+						_tipzy.addTip($anchor, undefined, true, e);
+					}
+					
+				});
+			
+			if(typeof endedEvents === 'object') endedEvents.init();
+
 			$(window)
 				.on('touchstart', function(e){
 					_tipzy.hideAll();
