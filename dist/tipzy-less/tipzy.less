@@ -10,7 +10,6 @@
 */ 
 
 @import "__tipzyVars"; 
-@import "_tipzyAnimations"; 
 
 //
 // !STYLEZ
@@ -29,28 +28,23 @@
 	color: @tipzy-txtColor;
 	border: @tipzy-border;
 	box-shadow: @tipzy-shadow;
+	
 	opacity: 0;
+	visibility: hidden;
 	
 	transform: translateY(@tipzy-pad *-2);
-	transition:opacity 0.3s 0.3s, transform 0.3s 0.75s;
-	
-	-moz-animation:  tipzy-hide 0.5s forwards;
-	-webkit-animation:  tipzy-hide 0.5s forwards;
-	-o-animation:  tipzy-hide 0.5s forwards;
-	-ms-animation:  tipzy-hide 0.5s forwards;
-	animation:  tipzy-hide 0.5s forwards;
+	transition:opacity 0.3s 0.3s, 
+		visibility 0.3s 0.3s,
+		transform 0.3s 0.75s;
 	
 	&[aria-hidden*="false"] {
+		
 		opacity:1;
-		z-index: @tipzy-z_top; // @tipzy-z_top - 400
-		pointer-events: auto;
+		visibility: visible;
+
 		transform: translateY(0);
 		transition-delay:0.15s;
-		-moz-animation:  tipzy-show 0.5s 0.5s forwards;
-		-webkit-animation:  tipzy-show 0.5s 0.5s forwards;
-		-o-animation:  tipzy-show 0.5s 0.5s forwards;
-		-ms-animation:  tipzy-show 0.5s 0.5s forwards;
-		animation:  tipzy-show 0.5s 0.5s forwards;
+		
 	}
 	
 	//

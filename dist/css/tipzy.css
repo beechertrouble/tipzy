@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-08-02 02:38:43 PM 
+* 2016-08-02 04:40:13 PM 
 */
 /**
 * TipZy : accessible ToolTips 
@@ -23,146 +23,6 @@
 * author : beechbot
 *
 */
-@-moz-keyframes tipzy-hide {
-  0% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  99.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: -1;
-    pointer-events: none;
-  }
-}
-@-webkit-keyframes tipzy-hide {
-  0% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  99.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: -1;
-    pointer-events: none;
-  }
-}
-@-o-keyframes tipzy-hide {
-  0% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  99.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: -1;
-    pointer-events: none;
-  }
-}
-@-ms-keyframes tipzy-hide {
-  0% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  99.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: -1;
-    pointer-events: none;
-  }
-}
-@keyframes tipzy-hide {
-  0% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  99.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: -1;
-    pointer-events: none;
-  }
-}
-@-moz-keyframes tipzy-show {
-  0% {
-    z-index: -1;
-    pointer-events: none;
-  }
-  0.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: 50;
-    pointer-events: all;
-  }
-}
-@-webkit-keyframes tipzy-show {
-  0% {
-    z-index: -1;
-    pointer-events: none;
-  }
-  0.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: 50;
-    pointer-events: all;
-  }
-}
-@-o-keyframes tipzy-show {
-  0% {
-    z-index: -1;
-    pointer-events: none;
-  }
-  0.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: 50;
-    pointer-events: all;
-  }
-}
-@-ms-keyframes tipzy-show {
-  0% {
-    z-index: -1;
-    pointer-events: none;
-  }
-  0.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: 50;
-    pointer-events: all;
-  }
-}
-@keyframes tipzy-show {
-  0% {
-    z-index: -1;
-    pointer-events: none;
-  }
-  0.9999% {
-    z-index: 50;
-    pointer-events: all;
-  }
-  100% {
-    z-index: 50;
-    pointer-events: all;
-  }
-}
 ._tipzy {
   display: inline-block;
   position: absolute;
@@ -175,25 +35,17 @@
   border: 1px solid #666;
   box-shadow: 0px 0px 1.5em rgba(0, 0, 0, 0.4);
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-2em);
-  transition: opacity 0.3s 0.3s, transform 0.3s 0.75s;
-  -moz-animation: tipzy-hide 0.5s forwards;
-  -webkit-animation: tipzy-hide 0.5s forwards;
-  -o-animation: tipzy-hide 0.5s forwards;
-  -ms-animation: tipzy-hide 0.5s forwards;
-  animation: tipzy-hide 0.5s forwards;
+  transition: opacity 0.3s 0.3s, 
+		visibility 0.3s 0.3s,
+		transform 0.3s 0.75s;
 }
 ._tipzy[aria-hidden*="false"] {
   opacity: 1;
-  z-index: 50;
-  pointer-events: auto;
+  visibility: visible;
   transform: translateY(0);
   transition-delay: 0.15s;
-  -moz-animation: tipzy-show 0.5s 0.5s forwards;
-  -webkit-animation: tipzy-show 0.5s 0.5s forwards;
-  -o-animation: tipzy-show 0.5s 0.5s forwards;
-  -ms-animation: tipzy-show 0.5s 0.5s forwards;
-  animation: tipzy-show 0.5s 0.5s forwards;
 }
 ._tipzy:after,
 ._tipzy:before {
