@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-08-02 05:02:17 PM 
+* 2016-08-03 11:35:58 AM 
 */ 
 
 /**
@@ -327,7 +327,7 @@ var _tipzy = (function(W, $) {
 		}; // updateAnchorDims()
 		
 		_tip.show = function(e, position) {
-			
+						
 			if(!_tipzy.inited) 
 				_tipzy.init();
 			
@@ -350,6 +350,10 @@ var _tipzy = (function(W, $) {
 		return _tip;
 		
 	}; // _tip()
+	
+	
+	
+	
 	
 	//
 	// !tipZy methods 

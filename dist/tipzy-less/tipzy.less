@@ -33,17 +33,30 @@
 	visibility: hidden;
 	
 	transform: translateY(@tipzy-pad *-2);
-	transition:opacity 0.3s 0.3s, 
-		visibility 0.3s 0.3s,
-		transform 0.3s 0.75s;
+	transition:opacity @tipzy-transDuration @tipzy-showDelay, 
+		visibility @tipzy-transDuration @tipzy-showDelay, 
+		transform @tipzy-transDuration @tipzy-showDelay,
+		top 0s @tipzy-showDelay*2,
+		left 0s @tipzy-showDelay*2,
+		right 0s @tipzy-showDelay*2;
+	
+	&[aria-hidden*="true"] {
+		top:-99999px !important;
+		left:-99999px !important;	
+	}
 	
 	&[aria-hidden*="false"] {
 		
 		opacity:1;
 		visibility: visible;
-
 		transform: translateY(0);
-		transition-delay:0.15s;
+		
+		transition:opacity @tipzy-transDuration @tipzy-hideDelay, 
+			visibility @tipzy-transDuration @tipzy-hideDelay, 
+			transform @tipzy-transDuration @tipzy-hideDelay,
+			top 0s 0s,
+			left 0s 0s,
+			right 0s 0s;
 		
 	}
 	
@@ -151,6 +164,11 @@
 	
 	.tipzyStyleOverride();
 	
+}
+
+[dir="rtl"] ._tipzy[aria-hidden*="true"] {
+	left: auto !important;
+	right:-99999px !important;	
 }
 
 // this is so that you can always see all the conent, even in short windows ...

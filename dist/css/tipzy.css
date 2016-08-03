@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-08-02 04:40:13 PM 
+* 2016-08-03 12:08:30 PM 
 */
 /**
 * TipZy : accessible ToolTips 
@@ -37,15 +37,17 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(-2em);
-  transition: opacity 0.3s 0.3s, 
-		visibility 0.3s 0.3s,
-		transform 0.3s 0.75s;
+  transition: opacity 0.3s 0.3s, visibility 0.3s 0.3s, transform 0.3s 0.3s, top 0s 0.6s, left 0s 0.6s, right 0s 0.6s;
+}
+._tipzy[aria-hidden*="true"] {
+  top: -99999px !important;
+  left: -99999px !important;
 }
 ._tipzy[aria-hidden*="false"] {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  transition-delay: 0.15s;
+  transition: opacity 0.3s 0.15s, visibility 0.3s 0.15s, transform 0.3s 0.15s, top 0s 0s, left 0s 0s, right 0s 0s;
 }
 ._tipzy:after,
 ._tipzy:before {
@@ -193,6 +195,10 @@
   ._tipzy {
     max-width: 90%;
   }
+}
+[dir="rtl"] ._tipzy[aria-hidden*="true"] {
+  left: auto !important;
+  right: -99999px !important;
 }
 ._tipzy_content {
   position: relative;

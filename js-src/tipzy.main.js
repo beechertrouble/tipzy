@@ -212,7 +212,7 @@ var _tipzy = (function(W, $) {
 		}; // updateAnchorDims()
 		
 		_tip.show = function(e, position) {
-			
+						
 			if(!_tipzy.inited) 
 				_tipzy.init();
 			
@@ -235,6 +235,10 @@ var _tipzy = (function(W, $) {
 		return _tip;
 		
 	}; // _tip()
+	
+	
+	
+	
 	
 	//
 	// !tipZy methods 
