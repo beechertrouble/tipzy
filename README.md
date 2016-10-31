@@ -78,7 +78,7 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 ```javascript
 	
 	var args = {
-		windowPadding : 0 // this will make it so tips butt right up against the edges of the window ( defaults to 10 )
+		windowPadding : distanceFromWindowEdge // default : 10px 
 	};
 	
 	_tipzy.init(args);
@@ -89,33 +89,56 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 
 - `parseTips` - to parse any tip anchors that are visible on the page 
 ```javascript 
-_tipzy.parseTips();
+
+	_tipzy.parseTips();
+	
 ```
 
-- `addTip` - to manually add a tip to a jquery object in the dom, tipContent is optional, tipArgs are optional too - details as follows : 
+- `addTip` - to manually add a tip 
 ```javascript
 // optional per-tip-args
-var tipArgs = {
-	followMouse : true|||false, // default : true
-	showOnFocus : true||false, // default : true
-	addClass : 'optionalModifierClass' // default : null
-};
-_tipzy.addTip($anchor, tipContent, tipArgs);
+	
+	var tipArgs = {
+		followMouse : true|||false, // default : true
+		showOnFocus : true||false, // default : true
+		addClass : 'optionalModifierClass' // default : null
+	};
+	
+	// $anchor : jquery selector object 
+	// tipContent : optional content, otherwise based on data-tipzycontent or title 
+	_tipzy.addTip($anchor, tipContent, tipArgs);
+	
 ```
 
-- `showTip` - manually show a tip by UID, with an optional timeout to hide it
+- `showTip` - manually show a tip 
 ```javascript
-_tipzy.showTip(tip_uid_here, show_for_ms);
+
+	// tip_uid_here : unique ID of the tip to show
+	// show_for_ms : OPTIONAL - how many ms do we show the tip for? ( default : undefined - so no timeout )
+	// event :  OPTIONAL - event object for positioning 
+	_tipzy.showTip(tip_uid_here, show_for_ms, event);
+	
+```
+
+- `setContent` - to change the content of a tooltip 
+```javascript
+
+	_tipzy.setContent(tip_uid_here, 'derp');
+	
+```
+
+- `hideTip` - manually hide a tip
+```javascript
+
+	_tipzy.hideTip(tip_uid_here);
+
 ```
 
 - `hideAll` - to force hide all tooltips
 ```javascript
-_tipzy.hideAll();
-```
 
-- `_tip.setContent` - to change the content of a tooltip 
-```javascript
-_tipzy._tips[tip_uid_here].setContent('derp');
+	_tipzy.hideAll();
+	
 ```
 
 

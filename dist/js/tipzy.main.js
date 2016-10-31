@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-10-31 11:56:44 AM 
+* 2016-10-31 02:32:07 PM 
 */ 
 
 /**
@@ -325,11 +325,25 @@ var _tipzy = (function() {
 		
 	}; // addTip()
 	
+	
 	_tipzy.showTip = function(tipUID, showFor, e) {
 		
 		_tipzy._tips[tipUID].show(e, true, showFor);			
 		
 	}; // showTip()
+	
+	
+	_tipzy.setContent = function(tipUID, tipContent) {
+		
+		_tipzy._tips[tipUID].setContent(tipContent);			
+		
+	}; // showTip()
+	
+	_tipzy.hideTip = function(tipUID) {
+		
+		_tipzy._tips[tipUID].hide();
+		
+	}; // hideTip
 	
 	_tipzy.parseTips = function() {
 				

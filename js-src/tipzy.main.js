@@ -319,11 +319,25 @@ var _tipzy = (function() {
 		
 	}; // addTip()
 	
+	
 	_tipzy.showTip = function(tipUID, showFor, e) {
 		
 		_tipzy._tips[tipUID].show(e, true, showFor);			
 		
 	}; // showTip()
+	
+	
+	_tipzy.setContent = function(tipUID, tipContent) {
+		
+		_tipzy._tips[tipUID].setContent(tipContent);			
+		
+	}; // showTip()
+	
+	_tipzy.hideTip = function(tipUID) {
+		
+		_tipzy._tips[tipUID].hide();
+		
+	}; // hideTip
 	
 	_tipzy.parseTips = function() {
 				
