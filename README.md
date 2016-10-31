@@ -87,10 +87,13 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 
 #### other methods
 
-- `_tipzy.parseTips();` - to parse any tip anchors that are visible on the page 
+- `parseTips` - to parse any tip anchors that are visible on the page 
+```javascript 
+_tipzy.parseTips();
+```
 
-- `_tipzy.addTip($anchor, tipContent, tipArgs);` - to manually add a tip to a jquery object in the dom, tipContent is optional, tipArgs are optional too - details as follows : 
 
+- `addTip` - to manually add a tip to a jquery object in the dom, tipContent is optional, tipArgs are optional too - details as follows : 
 ```javascript
 // optional per-tip-args
 var tipArgs = {
@@ -98,6 +101,7 @@ var tipArgs = {
 	showOnFocus : true||false, // default : true
 	addClass : 'optionalModifierClass' // default : null
 };
+_tipzy.addTip($anchor, tipContent, tipArgs);
 ```
 
 - `_tipzy._tips[tip_uid_here].setContent('derp');` - to change the content of a tooltip 
