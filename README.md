@@ -92,7 +92,6 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 _tipzy.parseTips();
 ```
 
-
 - `addTip` - to manually add a tip to a jquery object in the dom, tipContent is optional, tipArgs are optional too - details as follows : 
 ```javascript
 // optional per-tip-args
@@ -104,11 +103,21 @@ var tipArgs = {
 _tipzy.addTip($anchor, tipContent, tipArgs);
 ```
 
-- `_tipzy._tips[tip_uid_here].setContent('derp');` - to change the content of a tooltip 
+- `showTip` - manually show a tip by UID, with an optional timeout to hide it
+```javascript
+_tipzy.showTip(tip_uid_here, show_for_ms);
+```
 
-- `_tipzy.showTip(tip_uid_here, show_for_ms)` - show a tip with an optional timout to hide it
+- `hideAll` - to force hide all tooltips
+```javascript
+_tipzy.hideAll();
+```
 
-- `_tipzy.hideAll();` - to force hide all tooltips
+- `_tip.setContent` - to change the content of a tooltip 
+```javascript
+_tipzy._tips[tip_uid_here].setContent('derp');
+```
+
 
 ## todo : 
 - browser / device testing 
