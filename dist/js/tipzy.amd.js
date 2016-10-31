@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-10-31 02:32:07 PM 
+* 2016-10-31 03:01:38 PM 
 */ 
 
 /**
@@ -66,6 +66,10 @@ var _tipzy = (function() {
 		getCoords = function(e) {
 			
 			switch(true) {
+				
+				case(typeof e !== 'object'):
+				case(e.originalEvent !== undefined && e.originalEvent.type == 'focus'):
+					return false;
 				
 				case(e.pageX !== undefined):
 					return  { x : e.pageX, y : e.pageY };
@@ -207,14 +211,14 @@ var _tipzy = (function() {
 		
 		_tip.position = function(e) {
 			
-			e = e === undefined ? false : getCoords(e);
-						
+			e = getCoords(e);
+												
 			// default target to center of anchor - unless we have pointer info ...
 			var anchorCenter = _tip.anchorDims.x + (_tip.anchorDims.w *0.5),
-				target = !e ? anchorCenter :  e.x,
+				target = !e || e.x === 0 ? anchorCenter :  e.x,
 				arrowLeft = 50,
 				arrowV = 'bottom';
-				
+								
 			_tip.tipDims.x = target - (_tip.tipDims.w *0.5); // center tip over target
 			_tip.tipDims.y = _tip.anchorDims.y - _tip.tipDims.tipyOffset - _tip.tipDims.h;
 	
