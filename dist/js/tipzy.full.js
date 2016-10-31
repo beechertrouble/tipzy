@@ -1,7 +1,7 @@
 /**
 * tipzy
 * v1.0.0
-* 2016-08-03 11:35:58 AM 
+* 2016-10-31 11:56:44 AM 
 */ 
 
 /**
@@ -125,9 +125,13 @@ if (typeof define === "function")
 * - inView
 * - endedEvents 
 */
-var _tipzy = (function(W, $) {
-	
-	var _tipzy = {
+var _tipzy = (function() {
+		
+	if($ === undefined)
+		var $ = typeof jquery !== 'undefined' ? jquery : jQuery;
+				
+	var W = window,
+		_tipzy = {
 			inited : false,
 			windowPadding : 10, // this is as close as we want to get to the edges of the window
 			_tips : {}, // to contain references to all tooltips on the page, also for accessing by UID
@@ -171,8 +175,8 @@ var _tipzy = (function(W, $) {
 	/**
 	* the tip thingy
 	*/	
-	var _tip = function($anchor, content) {
-		
+	var _tip = function($anchor, content, args) {
+					
 		var _tip = {
 				UID : makeUID(),
 				$anchor : $anchor,
@@ -180,9 +184,11 @@ var _tipzy = (function(W, $) {
 				content : '',
 				anchorDims : {},
 				tipDims : {},
+				hideTimeout : null,
 				state : {
 					parsed : false
-				}
+				},
+				args : typeof args === 'object' ? args : {}
 			}
 			;
 			
@@ -223,6 +229,8 @@ var _tipzy = (function(W, $) {
 			
 			$anchor.addClass('_tipzy_bound');
 			
+			if(_tip.args.addClass !== undefined) _tip.$tip.addClass(_tip.args.addClass);
+			
 			_tip.setContent(content);
 						
 			_tip.$tip
@@ -249,13 +257,31 @@ var _tipzy = (function(W, $) {
 					'data-tipzytitle' : $anchor.attr('title')
 				})
 				.removeAttr('title')
-				.on('focus mouseover mousenter', function(e){ //onMouseover element
-					_tip.updateAnchorDims();
-					_tip.show(e);
-				})
 				.on('blur mouseout',  function(e){ //onMouseout element
 					_tip.hide();
 				});
+			
+			if(_tip.args.showOnFocus === undefined || _tip.args.showOnFocus) {
+				
+				$anchor
+					.on('focus', function(e){ 
+						_tip.updateAnchorDims();
+						_tip.show(e);
+					});
+				
+			}	
+				
+			
+			if(_tip.args.followMouse === undefined || _tip.args.followMouse) {
+				
+				$anchor
+					.on('mouseover mousenter', function(e){ 
+						_tip.updateAnchorDims();
+						_tip.show(e);
+					});
+				
+			}	
+				
 			
 			_tip.updateAnchorDims();	
 			_tip.updateTipDims();
@@ -326,13 +352,18 @@ var _tipzy = (function(W, $) {
 			_tip.anchorDims.y = $anchor.offset().top;
 		}; // updateAnchorDims()
 		
-		_tip.show = function(e, position) {
+		_tip.show = function(e, position, showFor) {
 						
 			if(!_tipzy.inited) 
 				_tipzy.init();
 			
+			clearTimeout(_tip.hideTimeout);
+			if(showFor !== undefined)
+				_tip.hideTimeout = setTimeout(function(){ _tip.hide(); }, showFor);
+			
 			position = position !== undefined ? position : true;
 			_tip.updateTipDims();
+			_tip.updateAnchorDims();
 			
 			if(position)
 				_tip.position(e);
@@ -343,6 +374,7 @@ var _tipzy = (function(W, $) {
 		
 		_tip.hide = function() {
 			_tip.$tip.attr('aria-hidden', 'true');
+			clearTimeout(_tip.hideTimeout);
 		}; // 	hide()
 		
 		_tip.parse(content);
@@ -360,16 +392,19 @@ var _tipzy = (function(W, $) {
 	//
 		
 	_tipzy.updatePageStats = function() {
-
+		
+		var wW = $(W).width(),
+			wH = $(W).height();
+		
 		_tipzy.pageStats = {
 			T : W.pageYOffset + _tipzy.windowPadding,
-			R : W.innerWidth - _tipzy.windowPadding,
-			B : W.innerHeight - _tipzy.windowPadding,
+			R : wW - _tipzy.windowPadding,
+			B : wH - _tipzy.windowPadding,
 			L : W.pageXOffset + _tipzy.windowPadding,
-			W : W.innerWidth - (_tipzy.windowPadding *2),
-			H : W.innerHeight - (_tipzy.windowPadding *2)
+			W : wW - (_tipzy.windowPadding *2),
+			H : wH - (_tipzy.windowPadding *2)
 		};
-		
+				
 	}; // updatePageStats();	
 	
 	_tipzy.hideAll = function() {
@@ -385,17 +420,25 @@ var _tipzy = (function(W, $) {
 	}; // updateAllAnchors();
 	
 	
-	_tipzy.addTip = function($anchor, tipContent, showImmediately, e) {
+	_tipzy.addTip = function($anchor, tipContent, args, showImmediately, e) {
 		
 		if($anchor.length <= 0) return;
 		
-		var tip = new _tip($anchor, tipContent);
+		var tip = new _tip($anchor, tipContent, args);
 		_tipzy._tips[tip.UID] = tip;
 		
 		if(showImmediately)
 			_tipzy._tips[tip.UID].show(e, true);
+			
+		return _tipzy._tips[tip.UID];
 		
 	}; // addTip()
+	
+	_tipzy.showTip = function(tipUID, showFor, e) {
+		
+		_tipzy._tips[tipUID].show(e, true, showFor);			
+		
+	}; // showTip()
 	
 	_tipzy.parseTips = function() {
 				
@@ -458,7 +501,7 @@ var _tipzy = (function(W, $) {
 	
 	return _tipzy;
 		
-})(window, jQuery);
+})();
 	
 	return _tipzy;
 		

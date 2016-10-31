@@ -71,7 +71,7 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 - basic usage is automagical - set it and forget it like 
 ```javascript
 	
-	_tipsy.init();
+	_tipzy.init();
 	
 ```
 - you can pass it some args - here's a simple example - might be more args later ...
@@ -81,7 +81,7 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 		windowPadding : 0 // this will make it so tips butt right up against the edges of the window ( defaults to 10 )
 	};
 	
-	_tipsy.init(args);
+	_tipzy.init(args);
 	
 ```
 
@@ -89,9 +89,20 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 
 - `_tipzy.parseTips();` - to parse any tip anchors that are visible on the page 
 
-- `_tipzy.addTip($anchor, tipContent);` - to manually add a tip to a jquery object in the dom, tipContent is optional
+- `_tipzy.addTip($anchor, tipContent, tipArgs);` - to manually add a tip to a jquery object in the dom, tipContent is optional, tipArgs are optional too - details as follows : 
+
+```javascript
+// optional per-tip-args
+var tipArgs = {
+	followMouse : true|||false, // default : true
+	showOnFocus : true||false, // default : true
+	addClass : 'optionalModifierClass' // default : null
+};
+```
 
 - `_tipzy._tips[tip_uid_here].setContent('derp');` - to change the content of a tooltip 
+
+- `_tipzy.showTip(tip_uid_here, show_for_ms)` - show a tip with an optional timout to hide it
 
 - `_tipzy.hideAll();` - to force hide all tooltips
 

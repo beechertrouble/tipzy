@@ -1,6 +1,6 @@
 /**
 * amd stylez
 */
-define('_tipzy', ['jQuery', 'endedEvents'], function($, endedEvents) { 
+define('_tipzy', ['jquery', 'endedEvents'], function($, endedEvents) { 
 	
 	
