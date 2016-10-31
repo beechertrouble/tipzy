@@ -99,7 +99,7 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 // optional per-tip-args
 	
 	var tipArgs = {
-		followMouse : true|||false, // default : true
+		followMouse : true||false, // default : true
 		showOnFocus : true||false, // default : true
 		addClass : 'optionalModifierClass' // default : null
 	};
@@ -143,11 +143,12 @@ The Thing You Hover/Focus On To Be Shown The ToolTip
 
 
 ## todo : 
-- browser / device testing 
+- revisit screenreader / focus behavior ...
+- global default tip args from init args ...
+- browser / device testing ... always ...
 
 ## maybe : 
 - callbacks?
-- tip content from existing element in dom?
 - sass support?
 - should these be tabbable if the element itself isn't (so you can focus on the element and see the tip)?
 
